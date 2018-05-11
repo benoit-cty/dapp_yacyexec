@@ -1,16 +1,16 @@
 {
-  "name": "?",
-  "version": "1.0.0",
-  "description": "?",
+  "name": "YaCyExec",
+  "version": "0.0.1",
+  "description": "YaCy Decentralized search engine on iExec",
   "main": "iexec.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iExecBlockchainComputing/iexec-dapp-samples.git"
   },
   "author": {
-    "name": "?"
+    "name": "Benoit Courty"
   },
-  "license": "?",
+  "license": "GPL-2.0-only",
   "homepage": "https://github.com/iExecBlockchainComputing/iexec-dapp-samples/tree/init#readme",
   "logo": "logo.png",
   "dependencies": {

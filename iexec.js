@@ -6,6 +6,6 @@ module.exports = {
     envvars: 'XWDOCKERIMAGE=trancept/yacyexec:firsttry',
   },
   work: {
-    cmdline: 'curl http://www.google.com',
+    cmdline: 'http://www.google.com',
   }
 };
