@@ -22,7 +22,7 @@ Fortunatly there are projects that target to allow decentralized intensive compu
 > iExec is the first decentralized marketplace for cloud resources. The iExec platform allows everyone to monetize their applications, servers and data-sets.
 
 iExec is a whole ecosystem with a market-place for DApps, Oracle mecanisme, Scheduler, workers,... Dedicated to off-chain computing in a fully decentralized way.
-(https://iex.ec/app/uploads/2017/08/decentralized-cloud-infographic@3x-1.png)
+![iExec](https://iex.ec/app/uploads/2017/08/decentralized-cloud-infographic@3x-1.png)
 
 The V2 is coming at the end of the month and will introduce the Proof Of Completion system.
 
@@ -31,7 +31,7 @@ The V2 is coming at the end of the month and will introduce the Proof Of Complet
 It is now possible to use a Docker image with iExec. So my goal is to embeded YaCy in a Docker container in a way that allow iExec to launch the crawl.
 And there is a really good [interractive tutorial](https://www.katacoda.com/sulliwane/scenarios/ffmpeg) to learn that. Congratulation to the team.
 
-YaCy exist as a Docker container and the crawler could be launch by calling an url :
+YaCy exist as a [Docker image](https://hub.docker.com/r/luccioman/yacy/) and the crawler could be launch by calling an url :
 ```
 http://localhost:8090/Crawler_p.html?crawlingDomMaxPages=10000&range=wide&intention=&sitemapURL=&crawlingQ=on&crawlingMode=url&crawlingURL=http://WEBSITE_TO_CRAWL.net/&crawlingFile=&mustnotmatch=&crawlingFile%24file=&crawlingstart=Neuen%20Crawl%20starten&mustmatch=.*&createBookmark=on&bookmarkFolder=/crawlStart&xsstopw=on&indexMedia=on&crawlingIfOlderUnit=hour&cachePolicy=iffresh&indexText=on&crawlingIfOlderCheck=on&bookmarkTitle=&crawlingDomFilterDepth=1&crawlingDomFilterCheck=on&crawlingIfOlderNumber=1&crawlingDepth=4
 ```
