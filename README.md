@@ -2,8 +2,6 @@
 # YaCyExec
 ## Description
 YaCy Decentralized search engine on iExec
-## [Dapp params](./iexec.js)
-
 
 # Intro
 This is my note for the search assignment "try and build a decentralized search Dapp" of [TheSchool.AI](https://www.theschool.ai)
@@ -98,21 +96,25 @@ Rename the folder ixec-init to the name of your project.
 Set the name in iexec.js
 Rename the contract in contracts folder and edit it to set is name.
 
-Define the parameter in the iexec.js file.
+Define the parameters in the [Dapp params](./iexec.js) file.
 
-Here are the parameters that will describe our work:
-    cmdline: XXX cli arguments.
-    dirinuri: The worker will download this URI before executing the app XXX not needed.
+Here are the parameters that will describe the work:
+- cmdline: the url of the site to crawl.
+- dirinuri: The worker car download this URI before executing the app => We don't need it.
 
 Deploy you DApp on the Ethereum blockchain and the iExec decentralized cloud.
 "deploy" will compile the smart contrat and send it to Ropsten
 > iexec deploy
+
 Submit a job
 > iexec submit
+
 Check the status
 > iexec result 0x6f2db[...]
+
 Save job output
 > iexec result 0x6f2db[...] --save
+
 Read job output
 > cat 0x6f2db[...].text
 
