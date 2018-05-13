@@ -132,5 +132,8 @@ docker build apps/ -t trancept/yacyexec:firsttry
 Test the image like iExec will run it before submiting
 > docker run -v /tmp:/iexec trancept/yacyexec:firsttry http://toto.com
 
+To build and run in one command
+> docker build apps/ -t trancept/yacyexec:firsttry && docker run -v /tmp:/iexec trancept/yacyexec:firsttry http://toto.com
+
 If everything is OK, submit the image to Docker Hub
 > docker push trancept/yacyexec:firsttry

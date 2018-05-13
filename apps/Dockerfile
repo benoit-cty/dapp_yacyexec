@@ -41,6 +41,7 @@ RUN apt-get install golang-go -y && \
 
 # Set initial admin password : "docker" (encoded with custom yacy md5 function net.yacy.cora.order.Digest.encodeMD5Hex())
 RUN sed -i "/adminAccountBase64MD5=/c\adminAccountBase64MD5=MD5:e672161ffdce91be4678605f4f4e6786" /opt/yacy_search_server/defaults/yacy.init
+RUN sed -i "/adminAccountForLocalhost=/c\adminAccountForLocalhost=true" /opt/yacy_search_server/defaults/yacy.init
 
 # Intially enable HTTPS : this is the most secure option for remote administrator authentication
 #RUN sed -i "/server.https=false/c\server.https=true" /opt/yacy_search_server/defaults/yacy.init
@@ -49,7 +50,7 @@ RUN sed -i "/adminAccountBase64MD5=/c\adminAccountBase64MD5=MD5:e672161ffdce91be
 RUN adduser --system --group  --disabled-password yacy
 
 # Set ownership of yacy install directory to yacy user/group
-#RUN chown yacy:yacy -R /opt/yacy_search_server
+RUN chown yacy:yacy -R /opt/yacy_search_server
 
 # Expose HTTP and HTTPS default ports
 EXPOSE 8090 8443
@@ -59,11 +60,13 @@ EXPOSE 8090 8443
 
 # Add python script
 ADD yacyexec.py /usr/local/bin/
+ADD yacyexec.sh /usr/local/bin/
 RUN chmod a+x /usr/local/bin/yacyexec.py
+RUN chmod a+x /usr/local/bin/yacyexec.sh
 
 # Next commands run as yacy as non-root user for improved security
 
-#USER yacy
+USER yacy
 # Init IPFS for yacy user
 RUN /usr/local/bin/ipfs init
 
@@ -72,4 +75,8 @@ RUN /usr/local/bin/ipfs init
 #CMD ["/usr/local/bin/ipfs", "daemon"]
 #CMD ["/usr/local/bin/ipfs", "cat", "/ipfs/QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv/readme"]
 #CMD ["/usr/bin/curl","http://toto.com"]
-ENTRYPOINT ["/usr/local/bin/yacyexec.py"]
+ENTRYPOINT ["/bin/bash", "-c",  "/usr/local/bin/yacyexec.py \"$@\"", "--"] # "/usr/bin/python3",
+#ENTRYPOINT ["/bin/bash", "-c",  "/usr/local/bin/yacyexec.sh \"$@\"", "--"]
+#ENTRYPOINT /bin/bash -c /usr/local/bin/yacyexec.sh "$@"
+#ENTRYPOINT /usr/local/bin/yacyexec.py
+#CMD ["http://toto.com"] # default parameter for ENTRYPOINT
