@@ -35,9 +35,13 @@ http://localhost:8090/Crawler_p.html?crawlingDomMaxPages=10000&range=wide&intent
 ```
 For more information read the [wiki page](http://www.yacy-websearch.net/wiki/index.php/Dev:APICrawler).
 
-So everything seems to match together ;-)
+We can read the status of crawls using the /api/status_p.xml API (<crawls> section). This is indeed how the /Crawler_p.html updates the status of running crawls.
+  
+To get the full index metadata of what you just crawled, one idea could be for example to use a specific collection when starting your crawl, and then request the /solr/select API and filter on that collection.
 
-But we need to finish the iExec task when the crawler finish the indexation and save it to the YaCy P2P network.
+Thanks to https://github.com/luccioman, dev of YaCy, for pointing me to this.
+
+So everything seems to match together ;-)
 
 
 ## Installation
@@ -109,7 +113,7 @@ Deploy you DApp on the Ethereum blockchain and the iExec decentralized cloud.
 Submit a job
 > iexec submit
 
-Check the status
+Check the status using the hash of the job :
 > iexec result 0x6f2db[...]
 
 Save job output
